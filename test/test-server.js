@@ -54,7 +54,7 @@ describe('BlogPosts', function() {
                 expect(res.body.length).to.be.at.least(1);
                 // each item should be an object with key/value pairs
                 // for `id`, `name` and `checked`.
-                const expectedKeys = ['title', 'content', 'author', 'publishDate'];
+                const expectedKeys = ['title', 'content', 'author', 'publishDate', 'id'];
                 res.body.forEach(function(item) {
                     expect(item).to.be.a('object');
                     expect(item).to.include.keys(expectedKeys);
@@ -75,7 +75,7 @@ describe('BlogPosts', function() {
                 expect(res).to.have.status(201);
                 expect(res).to.be.json;
                 expect(res.body).to.be.a('object');
-                expect(res.body).to.include.keys('title', 'content', 'author', 'publishDate');
+                expect(res.body).to.include.keys('title', 'content', 'author', 'publishDate', 'id');
                 expect(res.body.id).to.not.equal(null);
                 // response should be deep equal to `newItem` from above if we assign
                 // `id` to it from `res.body.id`
